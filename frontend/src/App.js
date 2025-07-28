@@ -13,17 +13,19 @@ export default function App() {
           <img src={logo} alt={"GreenThumb Logo"} height={50} />
           <Typography variant="h6" sx={{ ml: 2}}>GreenThumb Analytics</Typography>
           <Box sx={{ ml:"auto", display: { xs: 'block', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Link key={item} sx={{ color: '#000', ml:2, textDecoration: "none" }} href={item.toLowerCase()}>
-                {item}
-              </Link>
-            ))}
+            <Link key={"sales"} sx={{ color: '#000', ml:2, textDecoration: "none" }} href={"/"}>
+              Sales Trends
+            </Link>
+            <Link key={"customer_insights"} sx={{ color: '#000', ml:2, textDecoration: "none" }} href={"/customers"}>
+              Customer Insights
+            </Link>
+
           </Box>
         </Toolbar>
        </AppBar>
        <Container sx={{mt: 4}} maxWidth="xl">
         <Routes>
-          <Route path="/sales" element={<SalesOverview />} />
+          <Route path="/" element={<SalesOverview />} />
           <Route path="/customers" element={<CustomerInsights />} />
         </Routes>
        </Container>
