@@ -15,6 +15,10 @@ def get_db():
   try: yield db
   finally: db.close()
 
+@app.get("/health-check")
+def health_check():
+    return {"status": "ok"}
+
 @app.get("/api/sales/overview")
 def sales_overview(db: Session = Depends(get_db)):
   rev = api.get_monthly_revenue(db)
